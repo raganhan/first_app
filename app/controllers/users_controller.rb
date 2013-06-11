@@ -1,4 +1,4 @@
 class UsersController < ApplicationController
-  def foo
+  def new
   end
 end

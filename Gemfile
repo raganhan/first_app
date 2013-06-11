@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails'
 gem 'bootstrap-sass'
+gem 'bcrypt-ruby'
 
 gem 'jquery-rails'
 
@@ -11,6 +12,7 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'spork'
   gem 'rename'
+  gem 'annotate'
 end
 
 group :test do
