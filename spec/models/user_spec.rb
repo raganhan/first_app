@@ -22,10 +22,14 @@ describe User do
 
   subject { @user }
   it { should be_valid }
+  it { should respond_to(:name) }
+  it { should respond_to(:email) }
+  it { should respond_to(:remember_token) }
+  it { should respond_to(:password_digest) }
+  it { should respond_to(:password) }
+  it { should respond_to(:password_confirmation) }
 
   describe "name" do
-    it { should respond_to(:name) }
-
     describe "when is not present" do
       before { @user.name = "" }
       it { should_not be_valid }
@@ -38,7 +42,6 @@ describe User do
   end
 
   describe "email" do
-    it { should respond_to(:email) }
 
     describe "when is not present" do
       before { @user.email = " " }
@@ -92,10 +95,6 @@ describe User do
 
   describe "password" do
 
-    it { should respond_to(:password_digest) }
-    it { should respond_to(:password) }
-    it { should respond_to(:password_confirmation) }
-
     describe "when is not present" do
       before { @user.password = @user.password_confirmation = " " }
       it { should_not be_valid }
@@ -132,6 +131,11 @@ describe User do
       it { should be_invalid }
     end
 
+  end
+
+  describe "remember token" do
+    before { @user.save }
+    its(:remember_token) { should_not be_blank }
   end
 
 end
